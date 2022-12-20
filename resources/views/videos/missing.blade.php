@@ -7,14 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <ul>
-        @foreach ($videos as $video)
-            <li>{{ $video->title }}</li>
-        @endforeach
-        </ul>
-    </div>
-     
-    {{ $videos->links() }}
+    <h1>Clip no disponible :(</h1>
+    <p>Pero te ofrecemos algunas sugerencias.</p>
 </body>
 </html>

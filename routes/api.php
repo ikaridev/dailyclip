@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/random', function ()
+{
+    $data = ['message' => 'ok'];
+    return response()->json($data, 200);
+});

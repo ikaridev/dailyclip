@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(VideoController::class)->group(function(){
     Route::get('/', 'index');
+    Route::get('/random', 'randomClip');
+    Route::get('/clip/{video}', 'showClip');
 });
 
 /*
