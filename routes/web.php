@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::controller(VideoController::class)->group(function(){
+    Route::get('/', 'index');
+});
+
+/*
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+*/
