@@ -9,7 +9,7 @@ class VideoController extends Controller
 {
     public function index()
     {
-        $videos = Video::orderBy('release', 'desc')->where('is_public', 1)->paginate(10);
+        $videos = Video::orderBy('release', 'desc')->where('is_public', 1)->paginate(5);
 
         return view('videos.index',['videos' => $videos]);
     }
