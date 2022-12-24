@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,9 @@ Route::controller(VideoController::class)->group(function(){
     Route::get('/clip/{video}', 'showClip');
 });
 
+Route::controller(AdminController::class)->prefix('/admin')->group(function(){
+    Route::get('/refresh', 'update');
+});
 /*
 
 Route::get('/', function () {

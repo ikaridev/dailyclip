@@ -16,7 +16,7 @@ class VideoFactory extends Factory
         $fake = $this->faker;
         return [
             'title' => $fake->name(),
-            'path' => 'video.mp4',
+            'path' => public_path('uploaded/videos/video.mp4'),
             'is_public' => $fake->randomElement([0,1]),
             'release' => $fake->date()
         ];

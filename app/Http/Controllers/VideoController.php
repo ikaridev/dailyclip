@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
-    function index()
+    public function index()
     {
-        $videos = Video::orderBy('release', 'desc')->where('is_public', 1)->paginate(5);
+        $videos = Video::orderBy('release', 'desc')->where('is_public', 1)->paginate(10);
 
         return view('videos.index',['videos' => $videos]);
     }
 
-    function showClip($video)
+    public function showClip($video)
     {
         $video = Video::find($video);
         if(empty($video) || !$video->is_public)
@@ -25,7 +25,7 @@ class VideoController extends Controller
         return view('videos.show', ['video' => $video]);
     }
 
-    function randomClip(Request $request)
+    public function randomClip(Request $request)
     {
         $video = Video::inRandomOrder()->where('is_public',1)->first();
 
