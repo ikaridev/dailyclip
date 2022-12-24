@@ -7,7 +7,7 @@
     <title>DailyClip</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/pico.min.css">
-    <script async type="application/javascript" src="https://a.realsrv.com/ad-provider.js"></script> 
+    {{-- <script async type="application/javascript" src="https://a.realsrv.com/ad-provider.js"></script>  --}}
 </head>
 <body>
     <header class="main-header container">
@@ -25,7 +25,7 @@
     <main class="main-content container">
         @yield('content')
     </main>
-    
+
     <footer>
         @yield('footer')
     </footer>

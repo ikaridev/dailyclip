@@ -19,7 +19,7 @@ class AdminController extends Controller
         unset($files[1]);
         $rows = DB::table('videos')->get();
         $data = [];
-        
+
         foreach ($rows as $row) {
             foreach ($files as $key => $file) {
                 if ($row->path == $file) {
@@ -29,16 +29,21 @@ class AdminController extends Controller
         }
 
         $length = count($rows);
+        $last = DB::table('videos')->orderBy('release', 'desc')->first();
+        $count = 1;
 
         foreach ($files as $file) {
+
+            $releaseDate = date('Y-m-d', strtotime($last == null ? now() : $last->release) + 86400*$count++);
+
             $data[] = [
                 'title' => 'video #'.$length++,
                 'path' => $file,
-                'is_public' => 0,
-                'release' => now()
+                'is_public' => now() >= $releaseDate ? 1 : 0,
+                'release' => $releaseDate
             ];
         }
-        
+
         DB::table('videos')->insert($data);
 
         return 'Se han actualizado '.count($data).' registros.';
